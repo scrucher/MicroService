@@ -12,7 +12,7 @@ import { TeacherDocument } from "./teacher.schema";
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy, 'jwt') {
     constructor(
-        @InjectModel('Students') private readonly teacherModel: Model<TeacherDocument>,
+        @InjectModel('Teacher') private readonly teacherModel: Model<TeacherDocument>,
     ) {
         super({
             jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),

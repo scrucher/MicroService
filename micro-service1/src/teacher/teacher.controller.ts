@@ -1,4 +1,5 @@
 import { Controller } from '@nestjs/common';
+import { MessagePattern } from '@nestjs/microservices';
 import { CreateTeacherDto } from './create-teacher.dto';
 import { TeacherService } from './teacher.service';
 import { ValidateTeacherDTO } from './validate-teacher.dto';
@@ -9,6 +10,7 @@ export class TeacherController {
         private readonly teacherService: TeacherService,
     ) { }
 
+    @MessagePattern({ role: "items", cmd: "CreateTeacher" })
     async CreateTeacher(createTeacherDto: CreateTeacherDto) {
         return await this.teacherService.CreateTeacher(createTeacherDto);
     }
