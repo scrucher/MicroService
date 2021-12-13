@@ -1,5 +1,6 @@
 export interface CreateCourseDto{
-    course_name: string;
-    course: string;
+    subject: string;
+    // course_name: string;
+    data: string;
     status: boolean;
 }

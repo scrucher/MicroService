@@ -1,6 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { ClientProxy, ClientProxyFactory, Transport } from '@nestjs/microservices';
 import { CreateCourseDto } from './create-ourse.dto';
+
+const logger = new Logger();
 
 @Injectable()
 export class CourseService {
@@ -16,6 +18,7 @@ export class CourseService {
     }
 
     async CreateCourse(createCourseDto: CreateCourseDto) {
+        logger.log({"data": {createCourseDto}})
         return await this.client.send({ role: "items", cmd: "CreateCourse" }, createCourseDto);
     }
 

@@ -5,6 +5,8 @@ import { ClassroomModule } from './classroom/classroom.module';
 import { CourseModule } from './course/course.module';
 import { TeacherModule } from './teacher/teacher.module';
 import { ClientsModule, Transport } from '@nestjs/microservices';
+import { ChatGateway } from './chat/chat.gateway';
+import { AlertGateway } from './alert/alert.gateway';
 
 
 @Module({
@@ -21,6 +23,7 @@ import { ClientsModule, Transport } from '@nestjs/microservices';
       },
     ]),
   ],
+  providers: [ChatGateway, AlertGateway],
 
 })
 export class AppModule {}
